@@ -20,4 +20,4 @@ wait
 
 ENDTIME=$(date +%s)
 LOADTIME=$((ENDTIME - STARTTIME))
-echo "Loading time: ${LOADTIME}"
+echo "Loading time: ${LOADTIME} s"

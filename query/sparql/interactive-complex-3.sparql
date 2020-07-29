@@ -80,6 +80,6 @@ WHERE
     ?fr snvoc:firstName ?firstName .
     ?fr snvoc:lastName ?lastName
 }
-ORDER BY DESC(?sum) ?fr
+ORDER BY ?fr
 LIMIT 20
 

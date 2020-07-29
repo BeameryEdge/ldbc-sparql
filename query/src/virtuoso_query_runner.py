@@ -11,13 +11,16 @@ import sparql_query_runner
 
 
 class VirtuosoQueryRunner(sparql_query_runner.SparqlQueryRunner):
-    name = "virtuoso"
+    def backendName(self):
+        return "Virtuoso"
+
     def __init__(self, database, timeout_mins, queryDir):
         sparql_query_runner.SparqlQueryRunner.__init__(self, queryDir)
         self.database = database
         self.timeout_secs = timeout_mins * 60
 
     def runQuery(self, query):
+        #print(query)
         results = {}
         if self.timeout_secs == 0:
             return query, results

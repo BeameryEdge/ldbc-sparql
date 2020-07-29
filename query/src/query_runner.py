@@ -4,6 +4,9 @@ class QueryRunner():
     def __init__(self):
         pass
 
+    def backendName(self):
+        pass
+
     def runQuery(self, query):
         pass
 

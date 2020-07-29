@@ -41,5 +41,5 @@ WHERE {
     ?fr snvoc:lastName ?last .
     ?fr snvoc:id ?frId
 }
-ORDER BY DESC(?creationDate) ?post
+ORDER BY DESC(?creationDate)
 LIMIT 20

@@ -2,6 +2,7 @@ import json
 import os, logging
 from datetime import datetime as dt
 from timeit import default_timer as timer
+import query_runner
 
 def run_query_is(seed, query_num, runner):
     if query_num in range(1, 10):
@@ -124,7 +125,7 @@ def log_query(query, backend, database, query_type, query_num, seed):
     ofile.write(query)
     ofile.close()
 
-def run_queries(seeds, query_type, query_num, runner):
+def run_queries(seeds, query_type, query_num, runner: query_runner):
     # create result folder
     resultPath = "result/"
     if not os.path.exists(os.path.dirname(resultPath)):
@@ -147,7 +148,7 @@ def run_queries(seeds, query_type, query_num, runner):
 
         query_string, results = run_query(seed, query_type, query_num, runner)
         #if logging.root.isEnabledFor(getattr(logging, 'DEBUG')):
-        log_query(query_string, runner.name, runner.database, query_type, query_num, seed_count)
+        log_query(query_string, runner.backendName(), runner.database, query_type, query_num, seed_count)
         seed_count += 1
 
         end = timer()
